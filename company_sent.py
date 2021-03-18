@@ -15,10 +15,12 @@ comb_df = pd.concat([raw_df1, raw_df2], axis=0)
 del raw_df1
 del raw_df2
 
-# Testing textblob
-test = 'This is terrible'
-blob = TextBlob(test)
-print(blob.sentiment)
+# Compute the TextBlob Sentiment and append result to Data Frame
+comb_df['Polarity'] = [TextBlob(purpose).sentiment.polarity for purpose in comb_df['Purpose']]
+comb_df['Subjectivity'] = [TextBlob(purpose).sentiment.subjectivity for purpose in comb_df['Purpose']]
+
+# Sort Data Frame by Sentiment (Polarity then Subjectivity)
+comb_df = comb_df.sort_values(by=['Polarity', 'Subjectivity'])
 
 
 
