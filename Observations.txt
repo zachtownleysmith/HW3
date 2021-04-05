@@ -1,0 +1,11 @@
+3.)
+When working with this dataset, I noticed that very few of the company purposes from the scraped website had a TextBlob
+Sentiment != 0. The generated company purposes also tended to mix past / present tense, as an indicator that it was
+created with a program vs an authentic company site.
+
+The lowest sentiment score observed in my dataset was for Reyes Inc, a company who specializes in artificial intelligence.
+Digging into which word caused the low score, it ended up being the word "artificial", which TextBlob's sentiment scored
+as a -0.6 polarity / 1 subjectivity. This is a poor categorization, as artificial intelligence should be interpreted
+as an objective area of study. If we wanted to use TextBlob's sentiment function, we would need to update the corpora to
+better handle our dataset of tech/finance companies.
+
